@@ -38,46 +38,39 @@ function startGeo(){
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-var marker = null;
+      var marker = null;
 
-function autoUpdate() {
-  navigator.geolocation.getCurrentPosition(function(position) {  
-    var newPoint = new google.maps.LatLng(position.coords.latitude, 
-                                          position.coords.longitude);
+      function autoUpdate() {
+        navigator.geolocation.getCurrentPosition(function(position) {  
+          var newPoint = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          if (marker) {
+            marker.setPosition(newPoint);
+          } else {
+            // Marker does not exist - Create it
+            marker = new google.maps.Marker({
+              position: newPoint,
+              map: map
+            });
+          }
 
-    if (marker) {
-      // Marker already created - Move it
-      marker.setPosition(newPoint);
-    }
-    else {
-      // Marker does not exist - Create it
-      marker = new google.maps.Marker({
-        position: newPoint,
-        map: map
-      });
-    }
+          // Center the map on the new position
+          map.setCenter(newPoint);
+        }); 
 
-    // Center the map on the new position
-    map.setCenter(newPoint);
-  }); 
+        // Call the autoUpdate() function every 5 seconds
+        setTimeout(autoUpdate, 5000);
+      }
 
-  // Call the autoUpdate() function every 5 seconds
-  setTimeout(autoUpdate, 5000);
-}
-
-autoUpdate(); 
-      map.setCenter(pos);
+      autoUpdate(); 
     }, function() {
       handleNoGeolocation(true);
     });
-     $("#stopRun").show();
+
+    $("#stopRun").show();
   } else {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
-
-
- 
 
 function add() {
     seconds++;
