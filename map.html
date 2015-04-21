@@ -8,12 +8,6 @@
 
     <style type="text/css">
         html, body, #map-canvas { margin: 0; padding: 0;}
-        .x{
-            position: fixed;
-            top: 80%;
-            left: 27.5%;
-            z-index: 5000;
-        }
     </style>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6CiSg0966cbYnoGa9zBzZUuU9W_os2VM"></script>
@@ -30,7 +24,7 @@
         </div>
     </nav>
 
-    <div class="row" style="background-color:#f0ede5;">
+    <div class="row runStatBar" style="background-color:#f0ede5;">
         <div class="col s4">
             TIME
             <br>
@@ -51,8 +45,8 @@
 
     <div id="map-canvas" style="width: 100%;"></div>   
 
-    <a id="startRun" class="waves-effect waves-light btn x"><i class="mdi-maps-my-location left"></i>Lets Dash!</a>
-    <a id="stopRun" class="btn-floating btn-large waves-effect waves-light red x"><i class="mdi-navigation-cancel"></i></a>
+    <a id="startRun" class="waves-effect waves-light btn mapButton"><i class="mdi-maps-my-location left"></i>Lets Dash!</a>
+    <a id="stopRun" class="btn-floating btn-large waves-effect waves-light red mapButton"><i class="mdi-navigation-cancel"></i></a>
 
     <footer class="#4fc3f7 light-blue lighten-2">
       	<ul>
