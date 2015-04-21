@@ -105,52 +105,6 @@
     <script src="resources/js/parse.js"></script>
     <!--<script type="text/javascript" src="resources/vendors/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
 	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-            $('.modal-trigger').leanModal();  
-            $(".button-collapse").sideNav();
-            $('ul.tabs').tabs();   
-            $('.collapsible').collapsible({
-                accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-            }); 
-            document.addEventListener("deviceready", applicationReady, false);     
-        });
-
-        function applicationReady(){
-            if (navigator.network.connection.type == Connection.NONE) {
-        $("#testNetwork").text('No Internet Access').addClass("ui-btn ui-btn-icon-top ui-icon-delete");
-    }
-    if (navigator.network.connection.type == Connection.WIFI) {
-        $("#testNetwork").text('WiFi Access').addClass("ui-btn ui-btn-icon-top ui-icon-check");
-    }
-    if (navigator.network.connection.type == Connection.CELL_2G) {
-        $("#testNetwork").text('2G Internet Access').addClass("ui-btn ui-btn-icon-top ui-icon-check");
-    }
-    if (navigator.network.connection.type == Connection.CELL_3G) {
-        $("#testNetwork").text('3G Internet Access').addClass("ui-btn ui-btn-icon-top ui-icon-check");
-    }
-    if (navigator.network.connection.type == Connection.CELL_4G) {
-        $("#testNetwork").text('4G Internet Access').addClass("ui-btn ui-btn-icon-top ui-icon-check");
-    }
-    if (navigator.network.connection.type == Connection.UNKNOWN) {
-        $("#testNetwork").text('Unknown Internet Access').addClass("ui-btn ui-btn-icon-top ui-icon-check");
-    }
-
-    var deviceInfo = document.getElementById('deviceProperties');
-    deviceInfo.innerHTML =
-        'Your handset is an: ' + device.model + '<br />' +
-        'Your OS platform is: ' + device.platform + '<br />';
-
-    if (navigator.connection.type == 0) {
-        $('#networkInfo').text("Offline").addClass("ui-btn ui-btn-icon-top ui-icon-delete");
-    } else if (navigator.connection.type == 'none') {
-        $('#networkInfo').text("Offline").addClass("ui-btn ui-btn-icon-top ui-icon-delete");
-    } else {
-        $('#networkInfo').text("Online").addClass("ui-btn ui-btn-icon-top ui-icon-check");
-    }
-}
-
-    </script>
+    <script type="text/javascript" src="resources/js/main.js"></script>
 </body>
 </html>
