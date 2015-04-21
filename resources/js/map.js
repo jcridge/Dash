@@ -4,7 +4,7 @@ var h6 = document.getElementsByTagName('h6')[0],
     stop = document.getElementById('stopRun'),
     seconds = 0, minutes = 0, hours = 0,
     t;
-var map;
+var map, GeoMarker;
 
 function initialize() {
   var mapOptions = {
@@ -57,11 +57,14 @@ function startGeo(){
           map.setCenter(newPoint);
         }); 
 
-        // Call the autoUpdate() function every 5 seconds
-        setTimeout(autoUpdate, 5000);
+        var listen = setTimeout(autoUpdate, 6000);
+
+    $('#stopRun').click(function(){
+        clearTimeout(listen);
+    });         
       }
 
-      autoUpdate(); 
+      autoUpdate();  
     }, function() {
       handleNoGeolocation(true);
     });

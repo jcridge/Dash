@@ -19,8 +19,13 @@
 <body onload="loadCordova()">
     <nav class="#4fc3f7 light-blue lighten-2">
         <div class="row">
-            <div class="col s10">10K Hero</div>
-            <div class="col s2"><a href="#!"><i class="mdi-navigation-more-vert"></i></a></div>        
+            <div class="col s10">Dash</div>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="#aboutModal" class="modal-trigger">About</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <hr>
+            </ul>            
+            <div class="col s2"><a href="#" data-activates="slide-out" class="button-collapse"><i class="tiny mdi-navigation-more-vert"></i></a></div>        
         </div>
     </nav>
 
