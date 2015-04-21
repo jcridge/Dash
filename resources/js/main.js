@@ -14,10 +14,18 @@ $(document).ready(function(){
         //loginUser();
         console.log("Logged in");
     });  
+    $('#stopRun').hide();
     $('#startRun').click(function(){
-        alert("xx");
+        $('#startRun').hide();
+        $('#stopRun').show();
         startGeo();
-    });     
+    }); 
+    $('#stopRun').click(function(){
+        //startGeo();
+        clearTimeout(t);
+        $('#startRun').show();
+        $('#stopRun').hide();
+    });         
 });
 
 function applicationReady(){
@@ -44,9 +52,12 @@ function applicationReady(){
 
     if (navigator.connection.type == 0) {
         $('#networkInfo').text("Offline");
+        $('.runConnection').text("None");
     } else if (navigator.connection.type == 'none') {
         $('#networkInfo').text("Offline");
+        $('.runConnection').text("None");
     } else {
         $('#networkInfo').text("Online");
+        $('.runConnection').text("Good");
     }
 }

@@ -44,15 +44,15 @@
         <div class="col s4">
             CONNECTION
             <br>
-            <strong>Good</strong>
+            <strong><span class="runConnection">N/A</span></strong>
         </div>        
     </div>
 
-    <hr>
 
     <div id="map-canvas" style="width: 100%;"></div>   
 
-    <a id="startRun" onclick="startGeo();" class="waves-effect waves-light btn x"><i class="mdi-maps-my-location left"></i>Lets Dash!</a>
+    <a id="startRun" class="waves-effect waves-light btn x"><i class="mdi-maps-my-location left"></i>Lets Dash!</a>
+    <a id="stopRun" class="btn-floating btn-large waves-effect waves-light red x"><i class="mdi-navigation-cancel"></i></a>
 
     <footer class="#4fc3f7 light-blue lighten-2">
       	<ul>
@@ -64,6 +64,7 @@
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
+    <script type="text/javascript" src="resources/js/main.js"></script>
     <script type="text/javascript" src="resources/js/map.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
