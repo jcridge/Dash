@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <!--<link rel="stylesheet" type="text/css" href="resources/vendors/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">-->
+    <link rel="stylesheet" type="text/css" href="resources/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <script src="https://parse.com/downloads/javascript/parse-1.3.4.js"></script>
+
+    <title>Materialize</title>
+    <style type="text/css">
+    .mainbutton{
+        text-align: center; 
+        width:49.45%;
+        text-transform: none;
+    }
+
+    .widebutton{
+        width: 100%;
+        text-transform: none;
+        text-align: center;
+    }
+
+    .title{
+        font-family: 'Pacifico', cursive;
+        color: ;
+    }
+
+    #backgroundImage{
+        position: fixed;
+        z-index: -50; 
+        top: -50%; 
+        left: -50%; 
+        width: 200%; 
+        height: 200%;
+    }
+
+    #backgroundImage img{
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        margin: auto; 
+        min-width: 50%;
+        opacity: 0.6;
+        min-height: 50%;
+    }
+    </style>
+</head>
+<body>
+    <nav class="#4fc3f7 light-blue lighten-2">
+        <div class="row">
+            <div class="col s10">10K Hero</div>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="#aboutModal" class="modal-trigger">About</a></li>
+                <li><a href="#!">Settings</a></li>
+                <hr>
+            </ul>            
+            <div class="col s2"><a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="small mdi-navigation-more-vert"></i></a></div>        
+        </div>
+    </nav>
+    
+    <main>
+        <ul class="tabs">
+            <li class="tab col s6"><a href="#test1">App Settings</a></li>
+            <li class="tab col s6"><a class="active" href="#test2">Personal Settings</a></li>
+        </ul>
+
+        <div id="test1" class="col s11 offset-s1">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><i class="mdi-av-loop"></i>Application Sync</div>
+                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="mdi-image-leak-add"></i>Connection Type</div>
+                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="mdi-communication-stay-primary-portrait"></i>Device Information</div>
+                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="mdi-device-gps-fixed"></i>Location</div>
+                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>    
+            </ul>
+        </div>
+        <div id="test2" class="col s12">Personal Settings</div>
+
+    </main>
+    
+    <footer class="#4fc3f7 light-blue lighten-2">
+        <ul class="">
+            <li class="waves-effect waves-light"><a href="profile.html"><i class="mdi-social-person small"></i></a></li>
+            <li class="waves-effect waves-light"><a href="map.html"><i class="mdi-maps-directions-walk small"></i></a></li>
+            <li class="waves-effect waves-light"><a href="goals.html"><i class="mdi-action-assignment small"></i></a></li>
+        </ul>
+    </footer>
+
+    <!--<script type="text/javascript" src="resources/js/parse.js"></script>-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="resources/js/parse.js"></script>
+    <!--<script type="text/javascript" src="resources/vendors/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();  
+            $(".button-collapse").sideNav();
+            $('ul.tabs').tabs();   
+            $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });      
+        });
+
+
+    </script>
+</body>
+</html>

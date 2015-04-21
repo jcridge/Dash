@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="resources/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>Materialize</title>
+</head>
+<body>
+    <nav class="#4fc3f7 light-blue lighten-2">
+        <div class="row">
+            <div class="col s10">10K Hero</div>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="#aboutModal" class="modal-trigger">About</a></li>
+                <li><a href="#!">Settings</a></li>
+                <hr>
+            </ul>            
+            <div class="col s2"><a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="small mdi-navigation-more-vert"></i></a></div>        
+        </div>
+    </nav>
+
+    <main>
+        <div class="row">
+            <div class="col s12">
+                <div id="profilePicHolder"></div>
+            </div>
+            <div class="col s12 centerText"><span class="" style="font-weight: bold;">testuser</span></div>
+            <div class="col s12 centerText">Active since: April 2014</div>
+            <div class="col s6 centerText">20 years old</div>
+            <div class="col s6 centerText">Male</div>
+        </div> 
+        
+        <hr>
+
+        <div class="row">
+            <div class="col s12 sectionTitles">User information</div>
+            <div class="col s3 offset-s1">Height</div><div class="col s8">182</div>
+            <div class="col s3 offset-s1">Weight</div><div class="col s8">132</div>
+            <div class="col s3 offset-s1">Bio</div><div class="col s8">Blah blah blah</div>
+            <div class="col s3 offset-s1">Cape Colour</div><div class="col s8">Blue</div>            
+        </div>         
+      
+        <hr>
+
+        <div class="row">
+            <div class="col s12 sectionTitles">Activities Tracked</div>
+            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8">12</div>            
+        </div> 
+        <hr>
+
+        <div class="row">
+            <div class="col s12 sectionTitles">Activities Tracked</div>
+            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8"><strong>12</strong></div>            
+        </div>         
+    </main>
+
+    <footer class="#4fc3f7 light-blue lighten-2">
+      	<ul class="">
+            <li class="waves-effect waves-light"><a href="profile.html"><i class="mdi-social-person small"></i></a></li>
+            <li class="waves-effect waves-light"><a href="map.html"><i class="mdi-maps-directions-walk small"></i></a></li>
+            <li class="waves-effect waves-light"><a href="goals.html"><i class="mdi-action-assignment small"></i></a></li>
+		</ul>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="aboutModal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <strong class="title">Dash</strong>
+            <br>
+            <div class="s12">Log in to your Dash account</div>                
+
+            <div class="row">
+                <div class="s6">Forgot Password?</div>
+                <div class="s6"><a class="modal-trigger" href="#regForm">Create Account</a></div>
+            </div>             
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+        </div>        
+    </div>    
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
+    <script type="text/javascript" src="resources/js/parse.js"></script>
+    <script type="text/javascript">
+        $('.modal-trigger').leanModal();
+        $('.button-collapse').sideNav({
+            menuWidth: 200, // Default is 240
+            edge: 'right', // Choose the horizontal origin
+            closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        });        
+    </script>
+</body>
+</html>

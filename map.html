@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" type="text/css" href="resources/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+
+    <style type="text/css">
+        html, body, #map-canvas { margin: 0; padding: 0;}
+    </style>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6CiSg0966cbYnoGa9zBzZUuU9W_os2VM"></script>
+
+    <title>Materialize</title>
+
+    
+</head>
+<body>
+    <nav class="#4fc3f7 light-blue lighten-2">
+        <div class="row">
+            <div class="col s10">10K Hero</div>
+            <div class="col s2"><a href="#!"><i class="mdi-navigation-more-vert"></i></a></div>        
+        </div>
+    </nav>
+
+    
+    <div id="map-canvas" style="width: 100%;"></div>   
+    
+
+    <footer class="#4fc3f7 light-blue lighten-2">
+      	<ul>
+            <li class="waves-effect waves-light"><a href="profile.html"><i class="mdi-social-person small"></i></a></li>
+            <li class="waves-effect waves-light"><a href="map.html"><i class="mdi-maps-directions-walk small"></i></a></li>
+            <li class="waves-effect waves-light"><a href="goals.html"><i class="mdi-action-assignment small"></i></a></li>
+		</ul>
+    </footer>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
+    <script type="text/javascript" src="resources/js/map.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var bodyheight = $(window).height();
+        $("#map-canvas").height(bodyheight - 103);
+        $(window).resize(function(){
+            var bodyheight = $(window).height();
+            $("#map-canvas").height(bodyheight - 103);
+        });
+    });
+        
+    </script>
+
+    <!--<script type="text/javascript" src="resources/js/parse.js"></script>-->
+</body>
+</html>
