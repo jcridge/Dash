@@ -52,3 +52,41 @@ hr{
     font-weight: bold;
     text-transform:uppercase;
 }
+
+    .mainbutton{
+        text-align: center; 
+        width:49.45%;
+        text-transform: none;
+    }
+
+    .widebutton{
+        width: 100%;
+        text-transform: none;
+        text-align: center;
+    }
+
+    .title{
+        font-family: 'Pacifico', cursive;
+        color: ;
+    }
+
+    #backgroundImage{
+        position: fixed;
+        z-index: -50; 
+        top: -50%; 
+        left: -50%; 
+        width: 200%; 
+        height: 200%;
+    }
+
+    #backgroundImage img{
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        margin: auto; 
+        min-width: 50%;
+        opacity: 0.6;
+        min-height: 50%;
+    }

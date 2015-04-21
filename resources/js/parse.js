@@ -1,5 +1,4 @@
-Parse.initialize("KH2Z0F7TbXcXLADVqg7knUaKdt9RPU9GPUOzCI2q",
-    "Mxny1YkaogT7lquNdxrADJ9VATbkXNFHjlc5XKnF");
+Parse.initialize("KH2Z0F7TbXcXLADVqg7knUaKdt9RPU9GPUOzCI2q", "Mxny1YkaogT7lquNdxrADJ9VATbkXNFHjlc5XKnF");
 
 function registerUser() {
     var username = $('#signUpName').val();

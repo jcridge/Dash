@@ -9,7 +9,15 @@ $(document).ready(function(){
     $('ul.tabs').tabs();   
     $('.collapsible').collapsible({
         accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });      
+    });
+    $('#loginRunner').click(function(){
+        //loginUser();
+        console.log("Logged in");
+    });  
+    $('#startRun').click(function(){
+        alert("xx");
+        startGeo();
+    });     
 });
 
 function applicationReady(){
