@@ -42,15 +42,13 @@ function registerUser() {
     });
 }
 
-function loginUser() {
+function loginUser(){
     var username = $('#usernameInput').val();
     var password = $('#passwordInput').val();
-    console.log("took username and pass");
+
     Parse.User.logIn(username, password, {
         success: function(user) {
-            console.log("logged in");
-            alert("Welcome " + username +
-                " you have successfully logged in.");
+            alert("Welcome " + username + " you have successfully logged in.");
         },
         error: function(user, error) {
             alert("Error: " + error.code + " " + error.message);
