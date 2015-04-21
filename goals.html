@@ -12,7 +12,12 @@
     <nav class="#4fc3f7 light-blue lighten-2">
         <div class="row">
             <div class="col s10">10K Hero</div>
-            <div class="col s2"><a href="#!"><i class="mdi-navigation-more-vert"></i></a></div>        
+            <ul id="slide-out" class="side-nav">
+                <li><a href="#aboutModal" class="modal-trigger">About</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <hr>
+            </ul>            
+            <div class="col s2"><a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="small mdi-navigation-more-vert"></i></a></div>        
         </div>
     </nav>
 
@@ -26,7 +31,7 @@
                 <a href="#!" class="collection-item">My inspirational image<i class="secondary-content mdi-content-send"></i></a>
                 <a href="#planningInfo" class="collection-item modal-trigger">Why planning is essential<i class="secondary-content mdi-content-send"></i></a>
                 <a href="#!" class="collection-item">Your goals and reminders<i class="secondary-content mdi-content-send"></i></a>
-                <a href="#!" class="collection-item">Training Plans<i class="secondary-content mdi-content-send"></i></a>
+                <a href="#!" class="collection-item" onclick="window.open('http://therunningbug.co.uk/training/plans-and-tips.aspx','_blank','location=no,closebuttoncaption=Return');">Training Plans<i class="secondary-content mdi-content-send"></i></a>
             </div>
         </div>      
     </main>
