@@ -1,0 +1,68 @@
+<head>
+<style type="text/css">
+
+</style>
+</head>
+<h1><time>00:00:00</time></h1>
+<button id="start">start</button>
+<button id="stop" style="display:none;">stop</button>
+<button id="clear">clear</button>
+<button id="round" style="display:none;">round</button>
+
+<ol reversed id="round-list">
+
+</ol>
+<script type="text/javascript">
+//set all our variables
+var h1 = document.getElementsByTagName('h1')[0],
+    start = document.getElementById('start'),
+    stop = document.getElementById('stop'),
+    clear = document.getElementById('clear'),
+    round = document.getElementById('round'),
+    roundList = document.getElementById('round-list'),
+    seconds = 0, minutes = 0, hours = 0, 
+    storedSecond = 0, storedMinutes = 0, storedHours = 0,
+    t;
+
+//lets format it correctly if there if there is single digits:
+function timeFormatting(timer,minutter,sekunder) {
+  return (timer ? (timer > 9 ? timer : "0" + timer) : "00") + ":" + (minutter ? (minutter > 9 ? minutter : "0" + minutter) : "00") + ":" + (sekunder > 9 ? sekunder : "0" + sekunder);
+}
+
+//the loop that handles the clock
+function add() {
+    seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+        }
+    }
+    
+    h1.textContent = timeFormatting(hours,minutes,seconds);
+
+    timer();
+}
+
+//the timer that goes off and triggers add() every second:
+function timer() {
+    t = setTimeout(add, 1000);
+}
+
+//starts the timer at refresh:
+//timer();
+
+
+/* Start button */
+start.onclick = function() {
+    //start the timer:
+    timer();
+    $('#stop').show();
+    $('#start').hide();
+    $('#round').show();
+    $('#clear').hide();
+}
+
+</script>
