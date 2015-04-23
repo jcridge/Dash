@@ -20,7 +20,7 @@
                 <hr>
                 <li><a id="logoutBtn">Logout</a></li>
             </ul>            
-            <div class="col s2"><a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="small mdi-navigation-more-vert"></i></a></div>        
+            <div class="col s2"><a href="#" onclick="vibrate(); return false;" data-activates="slide-out" class="button-collapse show-on-large"><i class="small mdi-navigation-more-vert"></i></a></div>        
         </div>
     </nav>
 
@@ -29,7 +29,7 @@
             <div class="col s12">
                 <div id="profilePicHolder"></div>
             </div>
-            <div class="col s12 centerText"><span class="parseuser" style="font-weight: bold;"></span></div>
+            <div class="col s12 centerText"><span class="parseuser" style="font-weight: bold; margin-top:15%;"></span></div>
             <div class="col s6 centerText"><span class="parseage"></span> years old</div>
             <div class="col s6 centerText"><span class="parseusergender"></span></div>
         </div> 
@@ -46,8 +46,12 @@
         <hr>
 
         <div class="row">
+            <div class="col s8">
             <input id="getCameraImage" type="file" value="Camera">
+            </div>
+            <div class="col s4">
             <button id="sendCameraImage" align="middle">Upload</button>           
+            </div>
         </div>
 
         <hr>
@@ -59,8 +63,8 @@
         <hr>
 
         <div class="row">
-            <div class="col s12 sectionTitles">Activities Tracked</div>
-            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8"><strong>12</strong></div>            
+            <div class="col s12 sectionTitles">Last Ran</div>
+            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8"><strong>12 Mile</strong></div>            
         </div>         
     </main>
 
