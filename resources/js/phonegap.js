@@ -1,3 +1,3 @@
 function vibrate() {
-    navigator.notification.vibrate(1000);
+    navigator.notification.vibrate(4000);
 }
