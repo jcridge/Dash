@@ -1,19 +1,15 @@
-Parse.initialize("KH2Z0F7TbXcXLADVqg7knUaKdt9RPU9GPUOzCI2q", "Mxny1YkaogT7lquNdxrADJ9VATbkXNFHjlc5XKnF");
+Parse.initialize("KH2Z0F7TbXcXLADVqg7knUaKdt9RPU9GPUOzCI2q","Mxny1YkaogT7lquNdxrADJ9VATbkXNFHjlc5XKnF");
 
 function registerUser() {
-    var username = $('#signUpName').val();
-    var password = $('#signUpPass').val();
-    var email = $('#email').val();
-    var forename = $('#signUpForename').val();
-    var surname = $('#signUpSurname').val();
-    var age = $('#signUpAge').val();
+    var username = $('#username').val();
+    var password = $('#password').val();
+    var email = $('#emailaddress').val();
+    var nameofuser = $('#fullname').val();
+    var age = $('#age').val();
     var gender = $('#signUpSex').val();
-    var weight = $('#signUpWeight').val();
-    var height = $('#signUpHeight').val();
-    var userinfo = $('#signUpBio').val();
-    var tenkready = $('#signUprevRunHistory').val();
-    var medcon = $('#medcondition').val();
-    var capecol = $('#capechoice').val();
+    var weight = $('#weight').val();
+    var height = $('#height').val();
+
     var setage = Number(age);
     var setheight = Number(height);
     var setweight = Number(weight);
@@ -21,20 +17,15 @@ function registerUser() {
     user.set("username", username);
     user.set("password", password);
     user.set("email", email);
-    user.set("forename", forename);
-    user.set("surname", surname);
+    user.set("nameofuser", nameofuser);
     user.set("age", setage);
     user.set("Gender", gender);
     user.set("weight", setweight);
     user.set("height", setheight);
-    user.set("userInfo", userinfo);
-    user.set("tenk_ready", tenkready);
-    user.set("medcon", medcon);
-    user.set("capeCol", capecol);
     user.signUp(null, {
         success: function(user) {
             alert("User has been registered.");
-            window.location.hash = "cape";
+            window.location.assign("index.html");
         },
         error: function(user, error) {
             alert("Error: " + error.code + " " + error.message);
@@ -49,7 +40,8 @@ function loginUser(){
     Parse.User.logIn(username, password, {
         success: function(user) {
             alert("Welcome " + username + " you have successfully logged in.");
-        },
+            window.location.assign("profile.html");
+                    },
         error: function(user, error) {
             alert("Error: " + error.code + " " + error.message);
         }
@@ -73,19 +65,18 @@ function resetPass() {
 function logout() {
     Parse.User.logOut();
     alert("User has been logged out");
-    // DOES NOT LOG USER OUT. USERNAME STILL SHOWS
 }
+
 var currentUser = Parse.User.current();
-var joindate = currentUser.get('createdAt');
+var joindate = currentUser.get("createdAt");
 $(".parseuserdate").html(joindate);
 var user = currentUser.get("username");
 $(".parseuser").html(user);
 var usercape = currentUser.get("capeCol");
 $(".parseusercape").html(usercape);
-var fname = currentUser.get("forename");
-$(".parseuserfname").html(fname);
-var sname = currentUser.get("surname");
-$(".parseusersname").html(sname);
+var actualname = currentUser.get("nameofuser");
+$(".parseactualname").html(actualname);
+
 var age = currentUser.get("age");
 $(".parseage").html(age);
 var gender = currentUser.get("Gender");
@@ -94,3 +85,12 @@ var height = currentUser.get("height");
 $(".parseuserheight").html(height);
 var weight = currentUser.get("weight");
 $(".parseuserweight").html(weight);
+var bio = currentUser.get("userInfo");
+$(".parseuserbio").html(bio);
+var profilePicture = currentUser.get("ProfilePic");
+$("#profilePicHolder").html("<img id='profilePicture' height='90' width='90' src=" + profilePicture + ">");
+
+$('#logoutBtn').click(function(){
+    Parse.User.logOut();
+    window.location.assign("index.html");
+});

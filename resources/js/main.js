@@ -12,7 +12,10 @@ $(document).ready(function(){
     });
     $('#loginRunner').click(function(){
         loginUser();
-    });  
+    });
+    $('#registerRunner').click(function(){
+        registerUser();
+    });
     $('#stopRun').hide();
     $('#startRun').click(function(){
         $('#startRun').hide();
@@ -24,7 +27,7 @@ $(document).ready(function(){
         clearTimeout(t);
         $('#startRun').show();
         $('#stopRun').hide();
-    });         
+    });       
 });
 
 function applicationReady(){

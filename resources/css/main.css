@@ -37,11 +37,19 @@ hr{
 }
 
 #profilePicHolder{
-    border: 5px solid red;
+    padding-top: 2.5%;
     height: 25vh;
     width: 50%;
     border-radius: 50%;
     margin:0 auto;
+}
+
+#profilePicture{
+    padding-top: 2.5%;
+    height: 25vh;
+    width: 100%;
+    border-radius: 25%;
+    margin:0 auto;    
 }
 
 .centerText{
