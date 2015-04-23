@@ -71,15 +71,22 @@ var usercape = currentUser.get("capeCol");
 $(".parseusercape").html(usercape);
 var actualname = currentUser.get("nameofuser");
 $(".parseactualname").html(actualname);
-
-var age = currentUser.get("age");
-$(".parseage").html(age);
-var gender = currentUser.get("Gender");
-$(".parseusergender").html(gender);
 var height = currentUser.get("height");
 $(".parseuserheight").html(height);
 var weight = currentUser.get("weight");
 $(".parseuserweight").html(weight);
+var metre = height * 0.01;
+var kg = weight * 0.453592;
+var division = kg / metre;
+var BMI = division / metre;
+var BMIrounded = Math.round(BMI * 100) / 100
+
+$(".parseuserBMI").html(BMIrounded);
+var age = currentUser.get("age");
+$(".parseage").html(age);
+var gender = currentUser.get("Gender");
+$(".parseusergender").html(gender);
+
 var bio = currentUser.get("userInfo");
 $(".parseuserbio").html(bio);
 var profilePicture = currentUser.get("ProfilePic");
