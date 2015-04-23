@@ -45,6 +45,7 @@ $(function() {
                         success: function(User) {
                             User.save(null, {
                                 success: function(user) {
+                                    Materialize.toast('Sucessfully uploaded profile picture', 4000);
                                     user.set("ProfilePic", imgdata);
                                     user.save();
                                 }

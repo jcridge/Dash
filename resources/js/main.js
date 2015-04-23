@@ -30,6 +30,8 @@ $(document).ready(function(){
     });       
 });
 
+
+
 function applicationReady(){
     if (navigator.network.connection.type == Connection.NONE) {
         $("#testNetwork").text('No Internet Access');

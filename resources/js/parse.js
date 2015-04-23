@@ -24,7 +24,7 @@ function registerUser() {
     user.set("height", setheight);
     user.signUp(null, {
         success: function(user) {
-            alert("User has been registered.");
+            Materialize.toast('You have been sucessfully registered', 3000);
             window.location.assign("index.html");
         },
         error: function(user, error) {
@@ -39,7 +39,7 @@ function loginUser(){
 
     Parse.User.logIn(username, password, {
         success: function(user) {
-            alert("Welcome " + username + " you have successfully logged in.");
+            Materialize.toast('Sucessfully logged in!', 3000);
             window.location.assign("profile.html");
                     },
         error: function(user, error) {
@@ -60,11 +60,6 @@ function resetPass() {
             alert("Error: " + error.code + " " + error.message);
         }
     });
-}
-
-function logout() {
-    Parse.User.logOut();
-    alert("User has been logged out");
 }
 
 var currentUser = Parse.User.current();
@@ -91,6 +86,7 @@ var profilePicture = currentUser.get("ProfilePic");
 $("#profilePicHolder").html("<img id='profilePicture' height='90' width='90' src=" + profilePicture + ">");
 
 $('#logoutBtn').click(function(){
+    Materialize.toast('Sucessfully logged out!', 3000);
     Parse.User.logOut();
     window.location.assign("index.html");
 });
