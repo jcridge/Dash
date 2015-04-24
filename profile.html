@@ -14,18 +14,18 @@
 <body>
     <nav class="#4fc3f7 light-blue lighten-2">
         <div class="row">
-            <div class="col s10">10K Hero</div>
+            <div class="col s10 centerText">Dash</div>
             <ul id="slide-out" class="side-nav">
                 <li><a href="#aboutModal" class="modal-trigger">About</a></li>
                 <li><a href="settings.html">Settings</a></li>
                 <hr>
                 <li><a id="logoutBtn">Logout</a></li>
             </ul>            
-            <div class="col s2"><a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="small mdi-navigation-more-vert"></i></a></div>        
+            <div class="col s2"><a href="#" id="vibrate" data-activates="slide-out" class="button-collapse show-on-large"><i class="small mdi-navigation-more-vert"></i></a></div>        
         </div>
     </nav>
 
-    <main style="padding-top:11vh;">
+    <main style="padding-top:9vh;">
         <div class="row">
             <div class="col s12">
                 <div id="profilePicHolder"></div>
@@ -42,7 +42,8 @@
                 <input id="getCameraImage" type="file" value="Camera">
             </div>
             <div class="col s4 offset-s3">
-            <button class="" id="sendCameraImage" align="middle">Upload</button>           
+            <button class="" id="sendCameraImage" align="middle">Upload</button>
+            <button class="" id="testParse" align="middle">Test</button>           
             </div>
         </div>
 
@@ -83,8 +84,7 @@
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
             </div>        
-        </div> 
-        <hr>       
+        </div>      
     </main>
 
     <footer class="#4fc3f7 light-blue lighten-2">
@@ -108,7 +108,7 @@
             </div>             
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>        
     </div>    
 
@@ -116,8 +116,9 @@
 	
 	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
     <script type="text/javascript" src="resources/js/swiper.jquery.min.js"></script>
-    <script type="text/javascript" src="resources/js/main.js"></script>
+    
     <script type="text/javascript" src="resources/js/parse.js"></script>
+    <script type="text/javascript" src="resources/js/main.js"></script>
     <script type="text/javascript" src="resources/js/phonegap.js"></script>
 
     <script>

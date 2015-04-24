@@ -6,6 +6,7 @@ $(document).ready(function(){
         edge: 'right', // Choose the horizontal origin
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }); 
+    $('select').material_select();
     $('ul.tabs').tabs();   
     $('.collapsible').collapsible({
         accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
@@ -22,6 +23,9 @@ $(document).ready(function(){
         $('#stopRun').show();
         startGeo();
     }); 
+    $('#vibrate').click(function(){
+        navigator.notification.vibrate(4000);
+    });     
     $('#stopRun').click(function(){
         //startGeo();
         clearTimeout(t);
