@@ -33,8 +33,16 @@ $(document).ready(function(){
 });
 
 function applicationResumed () {
-    alert("Test");
-    //Materialize.toast('Sucessfully resumed Dash!', 3000);
+    navigator.notification.alert(
+        'Dash has been resumed.',
+        dismissAlert,
+        'Dash',
+        'OK'
+    );
+}
+
+function dismissAlert(){
+
 }
 
 function applicationReady(){
@@ -63,8 +71,6 @@ function applicationReady(){
 
     $("#deviceProperties").text('Your handset is a ' + device.model + ' running OS ' + device.platform);
 
-
-
     if (navigator.connection.type == 0) {
         $('#networkInfo').text("Offline");
         $('.runConnection').text("None");
@@ -77,27 +83,22 @@ function applicationReady(){
     }
 }
 
-// Vibrate for 2 seconds
-//
 function vibrate() {
     navigator.notification.vibrate(2000);
 }
 
-function onBatteryStatus(info) 
-{
+function onBatteryStatus(info){
     $("#batteryProperties").text("Your battery is at level" + info.level);
 }
 
-function onBatteryLow(info) 
-{
+function onBatteryLow(info){
     navigator.notification.vibrate(2000);
     navigator.notification.beep(1);
-    alert("Battery Level Low " + info.level + "%");
+    alert("Your battery level is " + info.level + "%. Grab a charger!");
 }
 
-function onBatteryCritical(info) 
-{
+function onBatteryCritical(info){
     navigator.notification.vibrate(2000);
     navigator.notification.beep(3);
-    alert("Battery Level Critical " + info.level);
+    alert("Your battery level is at a critical level of " + info.level);
 }
