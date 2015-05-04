@@ -22,10 +22,7 @@ $(document).ready(function(){
         $('#startRun').hide();
         $('#stopRun').show();
         startGeo();
-    }); 
-    $('#vibrate').click(function(){
-        navigator.notification.vibrate(4000);
-    });     
+    });   
     $('#stopRun').click(function(){
         //startGeo();
         clearTimeout(t);
@@ -68,4 +65,8 @@ function applicationReady(){
         $('#networkInfo').text("Online");
         $('.runConnection').text("Good");
     }
+
+    $('#inspirationalPicHolder').click(function(){
+        navigator.notification.vibrate(4000);
+    });   
 }
