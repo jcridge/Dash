@@ -65,8 +65,16 @@ function applicationReady(){
         $('#networkInfo').text("Online");
         $('.runConnection').text("Good");
     }
+}
 
-    $('#inspirationalPicHolder').click(function(){
-        navigator.notification.vibrate(4000);
-    });   
+// Beep three times
+//
+function playBeep() {
+    navigator.notification.beep(3);
+}
+
+// Vibrate for 2 seconds
+//
+function vibrate() {
+    navigator.notification.vibrate(2000);
 }
