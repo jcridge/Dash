@@ -5,14 +5,35 @@
         id        = "com.phonegap.helloworld"
         version   = "1.0.3">
 
-    <name>Dash</name>
+    <name>Dash - The perfect running companion</name>
 
     <description>x</description>
 
-    <author>Crij12</author>
+    <author>12001201</author>
 
     <gap:platform name="ios" />
     <gap:platform name="android" />
+    
+    <icon src="resources/img/appLogo/iOS/logo/57.png" width="57" height="57"/>
+ <platform name="ios">  
+  <!-- iOS 8.0+ -->
+  <!-- iPhone 6 Plus  -->
+  <icon src="resources/img/appLogo/iOS/logo/60x3.png" width="180" height="180" />
+  <!-- iOS 7.0+ -->
+  <!-- iPhone / iPod Touch  -->
+  <icon src="resources/img/appLogo/iOS/logo/60.png" width="60" height="60" />
+  <icon src="resources/img/appLogo/iOS/logo/60x2.png" width="120" height="120" />
+  <!-- iOS 6.1 -->
+  <!-- Spotlight Icon -->
+  <icon src="resources/img/appLogo/iOS/logo/40.png" width="40" height="40" />
+  <icon src="resources/img/appLogo/iOS/logo/80.png" width="80" height="80" />
+  <!-- iPhone / iPod Touch -->
+  <icon src="resources/img/appLogo/iOS/logo/57.png" width="57" height="57" />
+  <icon src="resources/img/appLogo/iOS/logo/114.png" width="114" height="114" />
+  <!-- iPhone Spotlight and Settings Icon -->
+  <icon src="resources/img/appLogo/iOS/logo/29.png" width="29" height="29" />
+  <icon src="resources/img/appLogo/iOS/logo/58.png" width="58" height="58" />
+</platform>
 
     <preference name="permissions"                value="none"/>
     
