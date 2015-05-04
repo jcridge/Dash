@@ -58,6 +58,8 @@ function applicationReady(){
 
     $("#deviceProperties").text('Your handset is a ' + device.model + ' running OS ' + device.platform);
 
+
+
     if (navigator.connection.type == 0) {
         $('#networkInfo').text("Offline");
         $('.runConnection').text("None");
@@ -70,12 +72,6 @@ function applicationReady(){
     }
 }
 
-// Beep three times
-//
-function playBeep() {
-    navigator.notification.beep(3);
-}
-
 // Vibrate for 2 seconds
 //
 function vibrate() {
@@ -84,18 +80,19 @@ function vibrate() {
 
 function onBatteryStatus(info) 
 {
-    navigator.notification.beep(1);
-    alert("Level: " + info.level + " isPlugged: " + info.isPlugged);
+    $("#batteryProperties").text("Your battery is at level" + info.level);
 }
 
 function onBatteryLow(info) 
 {
-    // the battery low event
+    navigator.notification.vibrate(2000);
+    navigator.notification.beep(1);
     alert("Battery Level Low " + info.level + "%");
 }
 
 function onBatteryCritical(info) 
 {
-    // the battery critical event
-    alert("Battery Level Critical " + info.level + "% - Save data now!");
+    navigator.notification.vibrate(2000);
+    navigator.notification.beep(3);
+    alert("Battery Level Critical " + info.level);
 }
