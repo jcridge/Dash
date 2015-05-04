@@ -32,8 +32,11 @@ $(document).ready(function(){
 });
 
 
-
 function applicationReady(){
+    window.addEventListener("batterystatus", onBatteryStatus, false);
+    window.addEventListener("batterylow", onBatteryLow, false);
+    window.addEventListener("batterycritical", onBatteryCritical, false);
+
     if (navigator.network.connection.type == Connection.NONE) {
         $("#testNetwork").text('No Internet Access');
     }
@@ -77,4 +80,22 @@ function playBeep() {
 //
 function vibrate() {
     navigator.notification.vibrate(2000);
+}
+
+function onBatteryStatus(info) 
+{
+    navigator.notification.beep(1);
+    alert("Level: " + info.level + " isPlugged: " + info.isPlugged);
+}
+
+function onBatteryLow(info) 
+{
+    // the battery low event
+    alert("Battery Level Low " + info.level + "%");
+}
+
+function onBatteryCritical(info) 
+{
+    // the battery critical event
+    alert("Battery Level Critical " + info.level + "% - Save data now!");
 }
