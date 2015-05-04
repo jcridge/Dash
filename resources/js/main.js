@@ -33,7 +33,8 @@ $(document).ready(function(){
 });
 
 function applicationResumed () {
-    Materialize.toast('Sucessfully resumed Dash!', 3000);
+    alert("Test");
+    //Materialize.toast('Sucessfully resumed Dash!', 3000);
 }
 
 function applicationReady(){
