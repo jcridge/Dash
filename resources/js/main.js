@@ -1,5 +1,6 @@
 $(document).ready(function(){
     document.addEventListener("deviceready", applicationReady, false);
+    document.addEventListener("resume", applicationResumed, false);
     $('.modal-trigger').leanModal();
     $('.button-collapse').sideNav({
         menuWidth: 200, // Default is 240
@@ -31,6 +32,9 @@ $(document).ready(function(){
     });       
 });
 
+function applicationResumed () {
+    Materialize.toast('Sucessfully resumed Dash!', 3000);
+}
 
 function applicationReady(){
     window.addEventListener("batterystatus", onBatteryStatus, false);
