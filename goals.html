@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script src="https://parse.com/downloads/javascript/parse-1.3.4.js"></script>
+    <script type="text/javascript" src="resources/js/Chart.min.js"></script>
     <title>Dash</title>
 </head>
 <body>
     <nav class="#4fc3f7 light-blue lighten-2">
         <div class="row">
-            <div class="col s10">10K Hero</div>
+            <div class="col s10 centerText">Dash</div>
             <ul id="slide-out" class="side-nav">
                 <li><a href="#aboutModal" class="modal-trigger">About</a></li>
                 <li><a href="settings.html">Settings</a></li>
@@ -27,13 +28,13 @@
     <main style="padding-top:11vh;">
         <div class="row">
             <div class="col s12">
+                <canvas id="runChart" width="300" height="400"></canvas>           
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="padding-bottom: 5%;">
             <div class="collection">
                 <a href="#planningInfo" class="collection-item modal-trigger">Why planning is essential<i class="secondary-content mdi-navigation-chevron-right"></i></a>
-                <a href="#!" class="collection-item">Your goals and reminders<i class="secondary-content mdi-navigation-chevron-right"></i></a>
                 <a href="#trainingPlans" class="collection-item modal-trigger">Training Plans<i class="secondary-content mdi-navigation-chevron-right"></i></a>
             </div>
         </div>      
@@ -60,20 +61,10 @@
                 <a href="#!" class="collection-item">10K Plan<i class="secondary-content mdi-navigation-chevron-right"></i></a>
                 <a href="#!" class="collection-item">Nutritition Plan<i class="secondary-content mdi-navigation-chevron-right"></i></a>
             </div>
-            <form class="s12">
-                <div class="input-field col s12">
-                    <select id="Plan">
-                        <option value="" disabled selected>Choose your plan</option>
-                        <option value="10K">10K</option>
-                        <option value="5K">5K</option>
-                    </select>
-                    <label>Plan</label>
-                </div> 
-                <input class="btn" id="setPlan"  value="Set">               
-            </form>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+            <a href="#joinPlanModal" class="modal-action  modal-trigger waves-effect waves-green btn-flat">JOIN</a>
         </div>
     </div> 
 
@@ -98,11 +89,32 @@
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>        
     </div>     
+
+    <div id="joinPlanModal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h5>Join a plan today!</h5>
+            <form class="s12">
+                <div class="input-field col s12">
+                    <select id="Plan">
+                        <option value="" disabled selected>Choose your plan</option>
+                        <option value="Beginner 5K">Beginner 5K</option>
+                        <option value="Intermediate 5K">Intermediate 5K</option>
+                        <option value="10K">10K</option>
+                    </select>
+                    <label>Plan</label>
+                </div>             
+            </form>   
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+            <a href="#!" id="setPlan" class="modal-action modal-close waves-effect waves-green btn-flat">JOIN</a>
+        </div>
+    </div>  
    
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!--<script type="text/javascript" src="resources/vendors/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
 	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
     <script type="text/javascript" src="resources/js/parse.js"></script>
     <script type="text/javascript" src="resources/js/main.js"></script>
+    <script type="text/javascript" src="resources/js/barchart.js"></script>
 </body>
 </html>

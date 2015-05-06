@@ -1,7 +1,6 @@
 $(document).ready(function(){
     document.addEventListener("deviceready", applicationReady, false);
     document.addEventListener("resume", applicationResumed, false);
-    getInfo();
     $('.modal-trigger').leanModal();
     $('.button-collapse').sideNav({
         menuWidth: 200, // Default is 240
@@ -21,12 +20,15 @@ $(document).ready(function(){
     });
     $('#stopRun').hide();
     $('#startRun').click(function(){
+        vibrate();
+        beep();
         $('#startRun').hide();
         $('#stopRun').show();
         startGeo();
     });   
     $('#stopRun').click(function(){
-        //startGeo();
+        vibrate();
+        beep();
         clearTimeout(t);
         $('#startRun').show();
         $('#stopRun').hide();
@@ -88,9 +90,14 @@ function vibrate() {
     navigator.notification.vibrate(2000);
 }
 
-function onBatteryStatus(info){
-    $("#batteryProperties").text("Your battery is at level" + info.level);
+function beep(){
+    navigator.notification.beep(3);
 }
+
+var drawStatus = function(info){
+    var batteryHTML = "Level is "+ info.level;
+    $('#batteryProperties').text(batteryHTML);
+};
 
 function onBatteryLow(info){
     navigator.notification.vibrate(2000);

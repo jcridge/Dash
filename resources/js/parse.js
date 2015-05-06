@@ -102,16 +102,17 @@ function afterRun(time){
     data.set("User", User);
     
     //http://stackoverflow.com/questions/9640266/convert-hhmmss-string-to-seconds-only-in-javascript
-    var runSeconds = time.split(':'); // split it at the colons
-
-    // minutes are worth 60 seconds. Hours are worth 60 minutes.
+    var runSeconds = time.split(':'); 
     var seconds = (+runSeconds[0]) * 60 * 60 + (+runSeconds[1]) * 60 + (+runSeconds[2]); 
+    // End of copied code
 
     var minutes = seconds / 60;
     minutes = Math.round(minutes * 100) / 100;
 
     var hours = minutes / 60;
-    var met = 7; // http://en.wikipedia.org/wiki/Metabolic_equivalent Running is equivelent to 7
+    // http://en.wikipedia.org/wiki/Metabolic_equivalent
+    // Running is equivelent to 7
+    var met = 7;
     var calories = 7 * weight * hours;
     calories = Math.round(calories);
   
@@ -119,7 +120,7 @@ function afterRun(time){
     data.set("caloriesBurnt", calories);
     data.save(null, {
         success: function(data){
-            console.log("Mike Linford");
+            console.log("Sucessful");
         },
         error: function(data, error){
             console.log(error.message);

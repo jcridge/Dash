@@ -1,4 +1,3 @@
-
 var h6 = document.getElementsByTagName('h6')[0],
     start = document.getElementById('start'),
     stop = document.getElementById('stopRun'),
@@ -57,7 +56,6 @@ function startGeo(){
               map: map
             });
           }
-
           // Center the map on the new position
           map.setCenter(newPoint);
         }); 
