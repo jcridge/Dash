@@ -94,9 +94,13 @@ function beep(){
     navigator.notification.beep(3);
 }
 
-var drawStatus = function(info){
+var batStatus = function(info){
     var batteryHTML = "Level is "+ info.level;
     $('#batteryProperties').text(batteryHTML);
+};
+
+var onBatteryStatus = function(info) {
+    batStatus(info);
 };
 
 function onBatteryLow(info){
