@@ -23,9 +23,7 @@ function registerUser() {
     user.set("Gender", gender);
     user.set("weight", setweight);
     user.set("height", setheight);
-    console.log(setRun);
     user.set("runsCompleted", setRun);
-    console.log("Done");
     user.signUp(null, {
         success: function(user) {
             Materialize.toast('You have been sucessfully registered', 3000);
@@ -44,6 +42,7 @@ function loginUser(){
     Parse.User.logIn(username, password, {
         success: function(user) {
             Materialize.toast('Sucessfully logged in!', 3000);
+            getInfo();
             window.location.assign("profile.html");
                     },
         error: function(user, error) {
@@ -70,10 +69,13 @@ function resetPassword() {
     });
 }
 
-$('#stopRun').click(function(){
-    console.log("running function");
+$('#startRun').click(function(){
     incrementRun();
-    console.log("incremented function");
+});
+
+$('#stopRun').click(function(){
+    console.log(time);
+    afterRun(time);
 });
 
 function incrementRun() {
@@ -85,20 +87,91 @@ function incrementRun() {
             success: function(User) {
                 User.save(null, {
                     success: function(user) {
-                        var runs = currentUser.get("runsCompleted");
-                        var increment = runs++;
-                        console.log(increment);
-                        user.set("runsCompleted", increment);
+                        user.increment("runsCompleted");
                         user.save();
                     }
                 });
-
             }
-        });          
+        });              
 }
 
+function afterRun(time){
+    var Data = Parse.Object.extend("Data");
+    var data = new Data();
+    var User = Parse.User.current();
+    data.set("User", User);
+    
+    //http://stackoverflow.com/questions/9640266/convert-hhmmss-string-to-seconds-only-in-javascript
+    var runSeconds = time.split(':'); // split it at the colons
 
+    // minutes are worth 60 seconds. Hours are worth 60 minutes.
+    var seconds = (+runSeconds[0]) * 60 * 60 + (+runSeconds[1]) * 60 + (+runSeconds[2]); 
 
+    var minutes = seconds / 60;
+    minutes = Math.round(minutes * 100) / 100;
+
+    var hours = minutes / 60;
+    var met = 7; // http://en.wikipedia.org/wiki/Metabolic_equivalent Running is equivelent to 7
+    var calories = 7 * weight * hours;
+    calories = Math.round(calories);
+  
+    data.set("Time", minutes);
+    data.set("caloriesBurnt", calories);
+    data.save(null, {
+        success: function(data){
+            console.log("Mike Linford");
+        },
+        error: function(data, error){
+            console.log(error.message);
+        }
+    })
+}
+
+function getInfo(){
+    var user = Parse.User.current();
+    var data = Parse.Object.extend("Data");
+    var query = new Parse.Query(data);
+    query.equalTo("User", user);
+    query.descending("createdAt");
+    query.limit(1);
+    query.find({
+        success: function(result){
+            console.log(result.get("Time"));
+            $('#banter').html(result.Time);
+        },
+        error: function(result, error){
+            alert(error.message);
+        }
+    })
+}
+
+function getTrainingPlan(){
+    var User = Parse.User.current();
+    var user = Parse.Object.extend("User");
+}
+
+function setTrainingPlan(){
+    var User = Parse.Object.extend("User");
+    var query = new Parse.Query(User);
+    var currentUser = Parse.User.current().id;
+    var plan = $('#Plan').val();
+    console.log(plan);
+    query.equalTo("objectId", currentUser);
+        query.first({
+            success: function(User) {
+                User.save(null, {
+                    success: function(user) {
+                        user.set("trainingplan", plan);
+                        user.save();
+                    }
+                });
+            }
+        });     
+}
+
+$('#setPlan').click(function(){
+    setTrainingPlan();
+});
 
 var currentUser = Parse.User.current();
 var joindate = currentUser.get("createdAt");
@@ -129,6 +202,11 @@ var bio = currentUser.get("userInfo");
 $(".parseuserbio").html(bio);
 var profilePicture = currentUser.get("ProfilePic");
 $("#profilePicHolder").html("<img id='profilePicture' height='90' width='90' src=" + profilePicture + ">");
+if(currentUser.get("ProfilePic") == undefined){
+    $("#profilePicHolder").html("<img id='profilePicture' height='90' width='90' src='resources/img/default.jpg'>");
+}
+var runs = currentUser.get("runsCompleted");
+$('#runsCompleted').html(runs);
 
 $('#logoutBtn').click(function(){
     Parse.User.logOut();

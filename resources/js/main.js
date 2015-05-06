@@ -1,6 +1,7 @@
 $(document).ready(function(){
     document.addEventListener("deviceready", applicationReady, false);
     document.addEventListener("resume", applicationResumed, false);
+    getInfo();
     $('.modal-trigger').leanModal();
     $('.button-collapse').sideNav({
         menuWidth: 200, // Default is 240
