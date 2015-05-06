@@ -21,7 +21,7 @@
                 <li><a id="logoutBtn">Logout</a></li>
                 <li></li>
             </ul>            
-            <div onclick="vibrate(); return false;" class="col s2"><a href="#" onclick="vibrate(); return false;" data-activates="slide-out" class="button-collapse show-on-large"><i onclick="vibrate(); return false;" class="small mdi-navigation-more-vert"></i></a></div>        
+            <div class="col s2"><a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="small mdi-navigation-more-vert"></i></a></div>        
         </div>
     </nav>
 
@@ -34,8 +34,8 @@
 
         <div class="row" style="padding-bottom: 5%;">
             <div class="collection">
-                <a href="#planningInfo" class="collection-item modal-trigger">Why planning is essential<i class="secondary-content mdi-action-info"></i></a>
-                <a href="#trainingPlans" class="collection-item modal-trigger">Training Plans<i class="secondary-content mdi-action-info"></i></a>
+                <a href="#planningInfo" class="collection-item modal-trigger">Why planning is essential<i class="secondary-content mdi-navigation-chevron-right"></i></a>
+                <a href="#trainingPlans" class="collection-item modal-trigger">Training Plans<i class="secondary-content mdi-navigation-chevron-right"></i></a>
             </div>
         </div>      
     </main>
@@ -105,8 +105,8 @@
             </form>   
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
-            <a href="#!" id="setPlan" class="modal-action modal-close waves-effect waves-green btn-flat">JOIN</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">BACK</a>
+            <a href="#!" id="setPlan" onclick="Materialize.toast('You have joined a plan!', 3000)" class="modal-action modal-close waves-effect waves-green btn-flat">JOIN</a>
         </div>
     </div>  
    
