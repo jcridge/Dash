@@ -107,8 +107,4 @@ function add() {
   stop.onclick = function() {
       clearTimeout(t);
   }
-  stopRun.onclick = function(){
-
-  }
-
 }
