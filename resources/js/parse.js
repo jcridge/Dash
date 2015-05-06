@@ -60,7 +60,7 @@ function resetPassword() {
     Parse.User.requestPasswordReset(email, {
         success: function() {
             navigator.notification.alert(
-                "Your password has been reset. You will have an email sent your address to re-enter your password."
+                "Your password has been reset. You will have an email sent your address to re-enter your password.",
                 dismissAlert, 'Dash', 'OK');
         },
         error: function(error) {
