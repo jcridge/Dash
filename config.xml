@@ -1,9 +1,9 @@
-<?xml version="2.4" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.helloworld"
-        version   = "1.0.3">
+        version   = "2.5.3">
 
     <name>Dash</name>
 
