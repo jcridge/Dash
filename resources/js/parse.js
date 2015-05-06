@@ -199,8 +199,10 @@ $(".parseage").html(age);
 var gender = currentUser.get("Gender");
 $(".parseusergender").html(gender);
 
-var bio = currentUser.get("userInfo");
-$(".parseuserbio").html(bio);
+var plan = currentUser.get("trainingplan");
+console.log(plan);
+$(".parseuserPlan").html(plan);
+
 var profilePicture = currentUser.get("ProfilePic");
 $("#profilePicHolder").html("<img id='profilePicture' height='90' width='90' src=" + profilePicture + ">");
 if(currentUser.get("ProfilePic") == undefined){

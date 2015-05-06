@@ -95,7 +95,7 @@ function beep(){
 }
 
 var batStatus = function(info){
-    var batteryHTML = "Level is "+ info.level;
+    var batteryHTML = "Battery level is at "+ info.level + "%. You'll be notified if it gets lower.";
     $('#batteryProperties').text(batteryHTML);
 };
 

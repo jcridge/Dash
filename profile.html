@@ -54,8 +54,7 @@
             <div class="col s12 sectionTitles">User information</div>
             <div class="col s3 offset-s1">Name</div>        <div class="col s8"><span class="parseactualname"></span></div> 
             <div class="col s3 offset-s1">Height</div>      <div class="col s8"><span class="parseuserheight"></span></div>
-            <div class="col s3 offset-s1">Weight</div>      <div class="col s8"><span class="parseuserweight"></span></div>
-            <div class="col s3 offset-s1">BMI</div>         <div class="col s8"><span class="parseuserBMI"></span></div>    
+            <div class="col s3 offset-s1">Weight</div>      <div class="col s8"><span class="parseuserweight"></span></div>    
         </div>         
       
         <hr>
@@ -66,22 +65,22 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="row">
-                            <div class="col s12 sectionTitles">Last Run</div>
-                            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8" id="banter"></div>            
-                        </div>  
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="row">
                             <div class="col s12 sectionTitles">Activities Completed</div>
-                            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8"><strong id="runsCompleted"></strong></div>            
+                            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8"><strong id="runsCompleted">0</strong></div>            
                         </div> 
                     </div>
                     <div class="swiper-slide">
                         <div class="row">
-                            <div class="col s12 sectionTitles">Total Calories Burnt</div>
-                            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8"><strong>1234</strong></div>            
+                            <div class="col s12 sectionTitles">Current Plan</div>
+                            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8"><strong class="parseuserPlan">None</strong></div>            
                         </div> 
                     </div>
+                    <div class="swiper-slide">
+                        <div class="row">
+                            <div class="col s12 sectionTitles">Current BMI*</div>
+                            <div class="col s3 offset-s1"><i class="small mdi-action-history"></i></div><div class="col s8"><strong class="parseuserBMI">0</strong></div>            
+                        </div> 
+                    </div>                    
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
