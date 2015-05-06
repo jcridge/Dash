@@ -13,6 +13,7 @@ function registerUser() {
     var setage = Number(age);
     var setheight = Number(height);
     var setweight = Number(weight);
+    var setRun = Number(0);
     var user = new Parse.User();
     user.set("username", username);
     user.set("password", password);
@@ -22,6 +23,9 @@ function registerUser() {
     user.set("Gender", gender);
     user.set("weight", setweight);
     user.set("height", setheight);
+    console.log(setRun);
+    user.set("runsCompleted", setRun);
+    console.log("Done");
     user.signUp(null, {
         success: function(user) {
             Materialize.toast('You have been sucessfully registered', 3000);
@@ -48,8 +52,12 @@ function loginUser(){
     });
 }
 
-function resetPass() {
-    var email = $('#resetPassInput').val();
+$('#resetPassword').click(function(){
+    resetPassword();
+});
+
+function resetPassword() {
+    var email = $('#forgottenEmailInput').val();
     Parse.User.requestPasswordReset(email, {
         success: function() {
             alert(
@@ -61,6 +69,36 @@ function resetPass() {
         }
     });
 }
+
+$('#stopRun').click(function(){
+    console.log("running function");
+    incrementRun();
+    console.log("incremented function");
+});
+
+function incrementRun() {
+    var User = Parse.Object.extend("User");
+    var query = new Parse.Query(User);
+    var currentUser = Parse.User.current().id;
+    query.equalTo("objectId", currentUser);
+        query.first({
+            success: function(User) {
+                User.save(null, {
+                    success: function(user) {
+                        var runs = currentUser.get("runsCompleted");
+                        var increment = runs++;
+                        console.log(increment);
+                        user.set("runsCompleted", increment);
+                        user.save();
+                    }
+                });
+
+            }
+        });          
+}
+
+
+
 
 var currentUser = Parse.User.current();
 var joindate = currentUser.get("createdAt");
@@ -93,7 +131,7 @@ var profilePicture = currentUser.get("ProfilePic");
 $("#profilePicHolder").html("<img id='profilePicture' height='90' width='90' src=" + profilePicture + ">");
 
 $('#logoutBtn').click(function(){
-    Materialize.toast('Sucessfully logged out!', 3000);
     Parse.User.logOut();
+    Materialize.toast('Sucessfully logged out!', 3000);
     window.location.assign("index.html");
 });

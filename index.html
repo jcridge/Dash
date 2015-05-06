@@ -62,7 +62,7 @@
                 </div>               
             </form>
             <div class="row">
-                <div class="s6">Forgot Password?</div>
+                <div class="s6"><a class="modal-trigger" href="#forgottenPass">Forgot Password?</a></div>
                 <div class="s6"><a class="modal-trigger" href="#regForm">Create Account</a></div>
             </div>             
         </div>
@@ -137,7 +137,30 @@
             </form>             
         </div>
     </div> 
-    
+
+    <!-- Modal Structure -->
+    <div id="forgottenPass" class="modal">
+        <div class="modal-content">
+            <strong class="title">Dash</strong>
+            <br>
+            <div class="s12">Forgotten your password?</div>    
+            <div class="s12">No worries.</div>                
+
+            <form class="col s12">
+                <div class="row">
+                    <div class="s12">
+                        <input name="forgottenEmailInput" id="forgottenEmailInput" type="text">
+                        <label for="forgottenEmailInput">Enter your email address:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="s12">
+                        <input class="btn" id="resetPassword"  value="Reset">
+                    </div>
+                </div>                         
+            </form>
+        </div>
+    </div>     
 	
     
     <!--<script type="text/javascript" src="resources/vendors/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
@@ -146,6 +169,5 @@
     <script type="text/javascript" src="resources/js/main.js"></script>
     <script type="text/javascript" src="resources/js/parse.js"></script>
     <script type="text/javascript" src="resources/js/phonegap.js"></script>
-    <style type="text/css"></style>
 </body>
 </html>
