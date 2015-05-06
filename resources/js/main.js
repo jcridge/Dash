@@ -36,12 +36,7 @@ $(document).ready(function(){
 });
 
 function applicationResumed () {
-    navigator.notification.alert(
-        'Dash has been resumed.',
-        dismissAlert,
-        'Dash',
-        'OK'
-    );
+    Materialize.toast('Dash has been resumed', 3000);
 }
 
 function dismissAlert(){
@@ -106,11 +101,21 @@ var onBatteryStatus = function(info) {
 function onBatteryLow(info){
     navigator.notification.vibrate(2000);
     navigator.notification.beep(1);
-    alert("Your battery level is " + info.level + "%. Grab a charger!");
+    navigator.notification.alert(
+        "Your battery level is " + info.level + "%. Grab a charger!",
+        dismissAlert,
+        'Dash',
+        'OK'
+    );
 }
 
 function onBatteryCritical(info){
     navigator.notification.vibrate(2000);
     navigator.notification.beep(3);
-    alert("Your battery level is at a critical level of " + info.level);
+    navigator.notification.alert(
+        "Your battery level is at a critical level of " + info.level,
+        dismissAlert,
+        'Dash',
+        'OK'
+    );
 }
