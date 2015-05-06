@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <head>
-    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <link rel="stylesheet" type="text/css" href="resources/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 
     <style type="text/css">
+        /* Source: https://developers.google.com/maps/documentation/javascript/tutorial */
         html, body, #map-canvas { margin: 0; padding: 0;}
     </style>
+
     <script src="https://parse.com/downloads/javascript/parse-1.3.4.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6CiSg0966cbYnoGa9zBzZUuU9W_os2VM"></script>
     <script type="text/javascript" src="cordova.js"></script>
-    <title>Materialize</title>
-
-    
+    <title>Dash</title>
 </head>
 <body onload="loadCordova()">
     <nav class="#4fc3f7 light-blue lighten-2">
@@ -48,7 +47,6 @@
         </div>        
     </div>
 
-
     <div id="map-canvas" style="width: 100%;"></div>   
 
     <a id="startRun" class="waves-effect waves-light btn mapButton"><i class="mdi-maps-my-location left"></i>Lets Dash!</a>
@@ -65,8 +63,6 @@
     <!-- Modal Structure -->
     <div id="aboutModal" class="modal modal-fixed-footer">
         <div class="modal-content">
-            <strong class="title centerText">Dash</strong>
-            <br>
             Created by: 12001201
             <br>
             COMP2361 Mobile Applications Development       
@@ -82,14 +78,14 @@
     <script type="text/javascript" src="resources/js/main.js"></script>
     <script type="text/javascript" src="resources/js/map.js"></script>
     <script type="text/javascript">
-    $(document).ready(function(){
-        var bodyheight = $(window).height();
-        $("#map-canvas").height(bodyheight - 103);
-        $(window).resize(function(){
+        $(document).ready(function(){
             var bodyheight = $(window).height();
             $("#map-canvas").height(bodyheight - 103);
-        });
-    });    
+            $(window).resize(function(){
+                var bodyheight = $(window).height();
+                $("#map-canvas").height(bodyheight - 103);
+            });
+        });    
     </script>
 </body>
 </html>

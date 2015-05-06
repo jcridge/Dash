@@ -1,53 +1,50 @@
-$(document).ready(function(){
+$(document).ready(function() {
     document.addEventListener("deviceready", applicationReady, false);
     document.addEventListener("resume", applicationResumed, false);
     $('.modal-trigger').leanModal();
     $('.button-collapse').sideNav({
-        menuWidth: 200, // Default is 240
-        edge: 'right', // Choose the horizontal origin
-        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    }); 
-    $('select').material_select();
-    $('ul.tabs').tabs();   
-    $('.collapsible').collapsible({
-        accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        menuWidth: 200,
+        edge: 'right',
+        closeOnClick: true
     });
-    $('#loginRunner').click(function(){
+    $('select').material_select();
+    $('ul.tabs').tabs();
+    $('.collapsible').collapsible({
+        accordion: false
+    });
+    $('#loginRunner').click(function() {
         loginUser();
     });
-    $('#registerRunner').click(function(){
+    $('#registerRunner').click(function() {
         registerUser();
     });
     $('#stopRun').hide();
-    $('#startRun').click(function(){
+    $('#startRun').click(function() {
         vibrate();
         beep();
         $('#startRun').hide();
         $('#stopRun').show();
         startGeo();
-    });   
-    $('#stopRun').click(function(){
+    });
+    $('#stopRun').click(function() {
         vibrate();
         beep();
         clearTimeout(t);
         $('#startRun').show();
         $('#stopRun').hide();
-    });       
+    });
 });
 
-function applicationResumed () {
+function applicationResumed() {
     Materialize.toast('Dash has been resumed', 3000);
 }
 
-function dismissAlert(){
+function dismissAlert() {}
 
-}
-
-function applicationReady(){
+function applicationReady() {
     window.addEventListener("batterystatus", onBatteryStatus, false);
     window.addEventListener("batterylow", onBatteryLow, false);
     window.addEventListener("batterycritical", onBatteryCritical, false);
-
     if (navigator.network.connection.type == Connection.NONE) {
         $("#testNetwork").text('No Internet Access');
     }
@@ -66,9 +63,8 @@ function applicationReady(){
     if (navigator.network.connection.type == Connection.UNKNOWN) {
         $("#testNetwork").text('Unknown Internet Access');
     }
-
-    $("#deviceProperties").text('Your handset is a ' + device.model + ' running OS ' + device.platform);
-
+    $("#deviceProperties").text('Your handset is a ' + device.model +
+        ' running OS ' + device.platform);
     if (navigator.connection.type == 0) {
         $('#networkInfo').text("Offline");
         $('.runConnection').text("None");
@@ -85,37 +81,31 @@ function vibrate() {
     navigator.notification.vibrate(2000);
 }
 
-function beep(){
+function beep() {
     navigator.notification.beep(3);
 }
 
-var batStatus = function(info){
-    var batteryHTML = "Battery level is at "+ info.level + "%. You'll be notified if it gets lower.";
+// Inspiration but modified from: http://www.raymondcamden.com/2012/01/13/Working-with-the-battery-in-a-PhoneGap-application
+var batStatus = function(info) {
+    var batteryHTML = "Battery level is at " + info.level +
+        "%. You'll be notified if it gets lower.";
     $('#batteryProperties').text(batteryHTML);
 };
-
 var onBatteryStatus = function(info) {
     batStatus(info);
 };
 
-function onBatteryLow(info){
+function onBatteryLow(info) {
     navigator.notification.vibrate(2000);
     navigator.notification.beep(1);
-    navigator.notification.alert(
-        "Your battery level is " + info.level + "%. Grab a charger!",
-        dismissAlert,
-        'Dash',
-        'OK'
-    );
+    navigator.notification.alert("Your battery level is " + info.level +
+        "%. Grab a charger!", dismissAlert, 'Dash', 'OK');
 }
 
-function onBatteryCritical(info){
+function onBatteryCritical(info) {
     navigator.notification.vibrate(2000);
     navigator.notification.beep(3);
     navigator.notification.alert(
         "Your battery level is at a critical level of " + info.level,
-        dismissAlert,
-        'Dash',
-        'OK'
-    );
+        dismissAlert, 'Dash', 'OK');
 }
