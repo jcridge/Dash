@@ -13,9 +13,11 @@
 
     <gap:platform name="ios" />
     <gap:platform name="android" />
+    <gap:splash src="resources/img/appLogo/iOS/splash/defaultx2.png" />
     
     <icon src="resources/img/appLogo/iOS/logo/60x3.png" width="180" height="180"/>
     <splash src="resources/img/appLogo/iOS/splash/defaultx2.png" width="640" height="960"/>
+
     
     <platform name="ios">  
         <icon src="resources/img/appLogo/iOS/logo/60x3.png" width="180" height="180" />
