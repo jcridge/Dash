@@ -45,6 +45,12 @@ function applicationReady() {
     window.addEventListener("batterystatus", onBatteryStatus, false);
     window.addEventListener("batterylow", onBatteryLow, false);
     window.addEventListener("batterycritical", onBatteryCritical, false);
+    cordova.plugins.notification.local.schedule({
+        id:1,
+        text: "Hey! Don't forget to Dash every now and then.",
+        firstAt: monday_9_am,
+        every: "week"
+    });    
     if (navigator.network.connection.type == Connection.NONE) {
         $("#testNetwork").text('No Internet Access');
     }
